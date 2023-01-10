@@ -4,28 +4,35 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com">
+    <link href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="/static/menu.css"type="text/css">
     <title>Menu</title>
 </head>
 <body>
-
-    {% extends 'base.html' %}
-    {% block content %} 
-
-    <div class="contenido-principal">
-        <ul class="listado-proyectos">
-            <a href="" class="proyecto">Gestion Mobiliaria</a>
-            <a href="" class="proyecto">Personal</a>
-            <a href="" class="proyecto">Menus</a>
-            <a href="" class="proyecto">Vehiculos</a>
-            <a href="" class="proyecto">Presupuesto</a>
-            <a href="" class="proyecto">Historial</a>
-            <a href="" class="proyecto">Personal Vehiculos</a>
-            <a href="" class="proyecto">Clientes</a>
-            <a href="" class="proyecto">Vista Platillos</a>
-        </ul>
+   <div class="barra" >
+        <h1 class="sap">Bienvenido</h1>
+        {% extends 'base.html' %}
+        {% block content %}
+   </div>
+   
+    <div class="contenido">
+        <main class="listado">
+            <div class="contenido-principal">
+                <ul class="listado-proyectos">
+                    <a href="" class="proyecto">Gestion Mobiliaria</a>
+                    <a href="" class="proyecto">Personal</a>
+                    <a href="" class="proyecto">Menus</a>
+                    <a href="" class="proyecto">Vehiculos</a>
+                    <a href="" class="proyecto">Presupuesto</a>
+                    <a href="" class="proyecto">Historial</a>
+                    <a href="" class="proyecto">Personal Vehiculos</a>
+                    <a href="" class="proyecto">Clientes</a>
+                    <a href="" class="proyecto">Vista Platillos</a>
+                </ul>
+            </div>
+        </main>
     </div>
-
-    {% endblock %}
-
+   {% endblock %}
 </body>
 </html>
