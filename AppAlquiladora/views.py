@@ -3,6 +3,7 @@ from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 from django.contrib.auth.models import User
 from django.contrib.auth import login, logout, authenticate
 from django.db import IntegrityError
+from .models import GestionMobiliaria
 
 # Login function.
 def signin(request):
@@ -56,3 +57,8 @@ def signout(request):
 
 def menu(request):
     return render(request, 'menu.html')
+
+
+def mobiliario(request):
+    mobiliario = GestionMobiliaria.objects.all()
+    return render(request, 'mobiliario.html', {'mobiliario': mobiliario})
