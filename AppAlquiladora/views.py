@@ -1,3 +1,4 @@
+from django.http import HttpRequest
 from django.shortcuts import render, redirect
 from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 from django.contrib.auth.models import User
@@ -61,4 +62,38 @@ def menu(request):
 
 def mobiliario(request):
     mobiliario = GestionMobiliaria.objects.all()
-    return render(request, 'mobiliario.html', {'mobiliario': mobiliario})
+
+    return render(request, 'Mobiliario/mobiliario.html', {
+        'mobiliario' : mobiliario,
+    })
+
+
+def mobiliario_p(request):
+    context = {}
+    #table gestion mobiliaria inside a list
+    mobiliario = GestionMobiliaria.objects.all()
+    #getting inputs inside a list
+    mobiliario_calcular = request.POST.getlist('calcular[]')
+    
+    subtotal = ['105', '90', '20', '12', '6', '4', '15', '0', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '']
+    """ for i in range(len(mobiliario_elegido)):
+        if mobiliario_elegido[i] == "":
+            mobiliario_elegido[i] = 0
+        for j in mobiliario:
+            subtotal.append(int(j.precio_renta) * int(mobiliario_elegido[i])) """
+
+    my_list = zip(mobiliario, mobiliario_calcular, subtotal)
+    context = {
+        'my_list' : my_list
+    }
+
+    return render(request, 'Mobiliario/mobiliario_p.html', context)
+
+
+def presupuesto(request):
+    mobiliario_elegido = request.POST.getlist('mobiliario_elegido[]')
+    subtotal_mobiliario = request.POST.getlist('subtotal_mobiliario[]')
+    print(mobiliario_elegido)
+    print(subtotal_mobiliario)
+
+    return render(request, 'Presupuesto/presupuesto.html')

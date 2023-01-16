@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mobiliario</title>
+</head>
+<body>
+    <div class="acciones">
+    {% extends 'base.html' %}
+
+    {% block content %} 
+    </div>
+
+    <h1>Mobiliario</h1>
+    <form action="/presupuesto/" method="POST">
+    {% csrf_token %}
+
+        <table>
+            <tr>
+                <th>ID</th>
+                <th>Producto</th>
+                <th>Reposicion</th>
+                <th>Precio Renta</th>
+                <th>Cantidad</th>
+                <th>Cantidad Elegida</th>
+                <th>Subtotal</th>
+            </tr>
+            
+            {% for i, j, k in my_list %}
+            <tr>
+                <td>{{i.id_gestionm}}</td>
+                <td>{{i.producto}}</td>
+                <td>{{i.reposicion}}</td>
+                <td>{{i.precio_renta}}</td>
+                <td>{{i.cantidad}}</td>
+                <td>
+                    <input type="number" value="{{j}}" name="mobiliario_elegido[]">
+                </td>
+                <td>
+                    <input type="number" value="{{k}}" name="subtotal_mobiliario[]">
+                </td>
+            </tr>
+            {% endfor %}
+        </table>
+        <input type="submit" value="presupuestar">
+    </form>
+      
+    {% endblock %}
+
+</body>
+</html>
