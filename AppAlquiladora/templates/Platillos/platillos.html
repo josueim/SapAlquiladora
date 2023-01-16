@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Platillos</title>
+</head>
+<body>
+    <div class="acciones">
+    {% extends 'base.html' %}
+
+    {% block content %} 
+    </div>
+
+    <h1>Platillos</h1>
+    <form action="/platillos-p/" method="POST">
+    {% csrf_token %}
+
+        <table>
+            <tr>
+                <th>ID</th>
+                <th>Producto</th>
+                <th>Descripcion</th>
+                <th>Precio por Persona</th>
+                <th>Cantidad Elegida</th>
+                <th>Subtotal</th>
+            </tr>
+            
+            {% for i in platillos %}
+            <tr>
+                <td>{{ i.id_menusc }}</td>
+                <td>{{ i.producto }}</td>
+                <td>{{ i.descripcion }}</td>
+                <td>{{ i.precio_persona }}</td>
+                <td>
+                    <input type="number" name='calcular_platillos[]'>
+                </td>
+                <td>
+                    <input type="number">
+                </td>
+            </tr>
+            {% endfor %}
+        </table>
+        <input type="submit" value="calcular" name="platillos">
+    </form>
+      
+    {% endblock %}
+
+</body>
+</html>

@@ -26,5 +26,9 @@ urlpatterns = [
     path('menu/', views.menu, name='menu'),
     path('mobiliario/', views.mobiliario, name='mobiliario'),
     path('mobiliario-p/', views.mobiliario_p, name='mobiliario_p'),
+    path('personal/', views.personal, name='personal'),
+    path('personal-p/', views.personal_p, name='personal_p'),
+    path('platillos/', views.platillos, name='platillos'),
+    path('platillos-p/', views.platillos_p, name='platillos_p'),
     path('presupuesto/', views.presupuesto, name='presupuesto'),
 ]

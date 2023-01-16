@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Personal</title>
+</head>
+<body>
+    <div class="acciones">
+    {% extends 'base.html' %}
+
+    {% block content %} 
+    </div>
+
+    <h1>Personal</h1>
+    <form action="/presupuesto/" method="POST">
+    {% csrf_token %}
+
+        <table>
+            <tr>
+                <th>ID</th>
+                <th>Puesto</th>
+                <th>Precio por Evento</th>
+                <th>Cantidad</th>
+                <th>Cantidad Elegida</th>
+                <th>Subtotal</th>
+            </tr>
+            
+            {% for i, j, k in my_list %}
+            <tr>
+                <td>{{i.id_personal}}</td>
+                <td>{{i.descripcion}}</td>
+                <td>{{i.precio_evento}}</td>
+                <td>{{i.cantidad}}</td>
+                <td>
+                    <input type="number" value="{{j}}" name="personal_elegido[]">
+                </td>
+                <td>
+                    <input type="number" value="{{k}}" name="subtotal_personal[]">
+                </td>
+            </tr>
+            {% endfor %}
+        </table>
+        <input type="submit" value="presupuestar">
+    </form>
+      
+    {% endblock %}
+
+</body>
+</html>
