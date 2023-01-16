@@ -4,7 +4,7 @@ from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 from django.contrib.auth.models import User
 from django.contrib.auth import login, logout, authenticate
 from django.db import IntegrityError
-from .models import GestionMobiliaria, Personal, MenusComida
+from .models import GestionMobiliaria, Personal, MenusComida, Clientes
 
 # Login function.
 def signin(request):
@@ -157,19 +157,63 @@ def platillos_p(request):
 
 
 def presupuesto(request):
+    context = {}
+    #data base tables into lists
+    clientes = Clientes.objects.all()
+    mobiliario = GestionMobiliaria.objects.all()
+
     #mobiliario
     mobiliario_elegido = request.POST.getlist('mobiliario_elegido[]')
     subtotal_mobiliario = request.POST.getlist('subtotal_mobiliario[]')
 
+    len_mobiliario = []
+    for i in range(len(mobiliario_elegido)):
+        len_mobiliario.append(i)
+
+    #list elegidos without zeros
+    mobiliarios = {}
+    counter_mobiliario = 0
+    for i in mobiliario_elegido:
+        if i != 0:
+            mobiliarios[counter_mobiliario] = i
+            counter_mobiliario += 1
+        else:
+            counter_mobiliario += 1
+
+    #list subtotal without zeros
+    subtotales = {}
+    counter_subtotal = 0
+    for i in subtotal_mobiliario:
+        if i != 0:
+            subtotales[counter_subtotal] = i
+            counter_subtotal += 1
+        else:
+            counter_subtotal += 1
+
+    mobiliario_zip = zip(mobiliario, mobiliarios, subtotales)
+    
+
     #personal
     personal_elegido = request.POST.getlist('personal_elegido[]')
     subtotal_personal = request.POST.getlist('subtotal_personal[]')
+    personal_zip = zip(personal_elegido, subtotal_personal)
+
+    len_personal = []
+    for i in range(len(personal_elegido)):
+        len_personal.append(i)
 
     #platillos
     platillos_elegido = request.POST.getlist('platillos_elegido[]')
     subtotal_platillos = request.POST.getlist('subtotal_platillos[]')
+    platillos_zip = zip(platillos_elegido, subtotal_platillos)
 
-    print(platillos_elegido)
-    print(subtotal_platillos)
+    len_platillos = []
+    for i in range(len(platillos_elegido)):
+        len_platillos.append(i)
 
-    return render(request, 'Presupuesto/presupuesto.html')
+    context = {
+        'clientes': clientes,
+        'mobiliario_zip': mobiliario_zip
+    }
+
+    return render(request, 'Presupuesto/presupuesto.html', context)

@@ -4,54 +4,61 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/static/presupuesto.css"type="text/css">
     <title>Presupuesto</title>
 </head>
 <body>
     <div class="acciones">
-        <a href="/menu" class="proyecto">Menu</a>
     {% extends 'base.html' %}
 
     {% block content %} 
     </div>
 
-    <h1 class="encabezado">Presupuesto</h1>
-    <form action="" method="POST">
+    <h1>Presupuesto</h1>
+    <form action="/historial/" method="POST">
     {% csrf_token %}
-    <div class="formulario-presupuesto div1">
-    <h2 class="encabezado-cliente">Cliente</h2>
+
+    <select name="" id="">
+        {% for i in clientes %}
+        <option value="" name="option_cliente">{{ i }}</option>
+        {% endfor %}
+    </select>
         <table>
-            <thead class="encabezado-tabla">
-                <tr>
-                    <th class="encabezado-titulo">ID</th>
-                    <th class="encabezado-titulo">Mobiliario</th>
-                    <th class="encabezado-titulo">Menus</th>
-                    <th class="encabezado-titulo">Personal</th>
-                    <th class="encabezado-titulo">Precio Unitario</th>
-                    <th class="encabezado-titulo">Subtotal</th>
-                </tr>
-            </thead>
             <tr>
+                <th>ID</th>
+                <th>Mobiliario</th>
+                <th>Platillos</th>
+                <th>Personal</th>
+                <th>Precio Unitario</th>
+                <th>Subtotal</th>
+                <th>Descuento</th>
+                <th>Total</th>
+                <th>A cuenta</th>
+            </tr>
+            
+            {% for i, j, k in mobiliario_zip %}
+            <tr>
+                <td><input type="number" value="{{j}}"></td>
                 <td></td>
                 <td></td>
-                <td></td>
+                <td><input type="text" value="{{j}}"></td>
                 <td></td>
                 <td></td>
                 <td>
                     <input type="number" value="">
                 </td>
+                <td></td>
                 <td>
                     <input type="number" value="">
                 </td>
             </tr>
+            {% endfor %}
             
             <tr>
-                <th class="pie-tabla">Total: </th>
+                <th>total</th>
             </tr>
         </table>
     
     </form>
-    </div>
       
     {% endblock %}
 
