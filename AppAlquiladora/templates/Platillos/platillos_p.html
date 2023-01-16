@@ -4,28 +4,32 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/static/platillos.css"type="text/css">
     <title>Platillos</title>
 </head>
 <body>
     <div class="acciones">
+        <a href="/menu" class="proyecto">Menu</a>
     {% extends 'base.html' %}
 
     {% block content %} 
     </div>
 
-    <h1>Platillos</h1>
+    <h1 class="encabezado">Platillos</h1>
     <form action="/presupuesto/" method="POST">
     {% csrf_token %}
-
+    <div class="formulario-platillos div1">
         <table>
-            <tr>
-                <th>ID</th>
-                <th>Producto</th>
-                <th>Descripción</th>
-                <th>Precio por Persona</th>
-                <th>Cantidad Elegida</th>
-                <th>Subtotal</th>
-            </tr>
+            <thead class="encabezado-tabla">
+                <tr>
+                    <th class="encabezado-titulo">ID</th>
+                    <th class="encabezado-titulo">Producto</th>
+                    <th class="encabezado-titulo">Descripcion</th>
+                    <th class="encabezado-titulo">Precio por Persona</th>
+                    <th class="encabezado-titulo">Cantidad Elegida</th>
+                    <th class="encabezado-titulo">Subtotal</th>
+                </tr>
+            </thead>
             
             {% for i, j, k in my_list %}
             <tr>
@@ -34,7 +38,7 @@
                 <td>{{i.precio_persona}}</td>
                 <td>{{i.cantidad}}</td>
                 <td>
-                    <input type="number" value="{{j}}" name="platillos_elegido[]">
+                    <input class="cantidad"type="number" value="{{j}}" name="platillos_elegido[]">
                 </td>
                 <td>
                     <input type="number" value="{{k}}" name="subtotal_platillos[]">
@@ -42,9 +46,9 @@
             </tr>
             {% endfor %}
         </table>
-        <input type="submit" value="presupuestar">
+        <input type="submit" value="presupuestar" class="boton">
     </form>
-      
+</div> 
     {% endblock %}
 
 </body>

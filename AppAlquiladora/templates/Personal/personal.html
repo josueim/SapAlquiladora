@@ -4,47 +4,52 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/static/personal.css"type="text/css">
     <title>Personal</title>
 </head>
 <body>
     <div class="acciones">
+        <a href="/menu" class="proyecto">Menu</a>
     {% extends 'base.html' %}
 
     {% block content %} 
     </div>
 
-    <h1>Personal</h1>
+    <h1 class="encabezado">Personal</h1>
     <form action="/personal-p/" method="POST">
     {% csrf_token %}
-
-        <table>
-            <tr>
-                <th>ID</th>
-                <th>Puesto</th>
-                <th>Precio por Evento</th>
-                <th>Cantidad</th>
-                <th>Cantidad Elegida</th>
-                <th>Subtotal</th>
-            </tr>
-            
-            {% for i in personal %}
-            <tr>
-                <td>{{ i.id_personal }}</td>
-                <td>{{ i.descripcion }}</td>
-                <td>{{ i.precio_evento }}</td>
-                <td>{{ i.cantidad }}</td>
-                <td>
-                    <input type="number" name='calcular_personal[]'>
-                </td>
-                <td>
-                    <input type="number">
-                </td>
-            </tr>
-            {% endfor %}
-        </table>
-        <input type="submit" value="calcular" name="personal">
-    </form>
-      
+    <div class="formulario-personal div1">
+            <table>
+                <thead class="encabezado-tabla">
+                    <tr>
+                        <th CLASS="encabezado-titulo">ID</th>
+                        <th CLASS="encabezado-titulo">Puesto</th>
+                        <th CLASS="encabezado-titulo">Precio por Evento</th>
+                        <th CLASS="encabezado-titulo">Cantidad</th>
+                        <th CLASS="encabezado-titulo">Cantidad Elegida</th>
+                        <th CLASS="encabezado-titulo">Subtotal</th>
+                    </tr>
+                </thead>
+                
+                {% for i in personal %}
+                <tr>
+                    <td>{{ i.id_personal }}</td>
+                    <td>{{ i.descripcion }}</td>
+                    <td>{{ i.precio_evento }}</td>
+                    <td>{{ i.cantidad }}</td>
+                    <td>
+                        <input class="cantidad" type="number" name='calcular_personal[]'>
+                    </td>
+                    <td>
+                        <input type="number">
+                    </td>
+                </tr>
+                {% endfor %}
+            </table>
+            <input type="submit" value="calcular" name="personal" class="boton">
+        </form>
+    </div>
+   
     {% endblock %}
 
 </body>

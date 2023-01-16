@@ -4,30 +4,34 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/static/mobiliario.css"type="text/css">
     <title>Mobiliario</title>
 </head>
 <body>
     <div class="acciones">
+        <a href="/menu" class="proyecto">Menu</a>
     {% extends 'base.html' %}
 
     {% block content %} 
     </div>
 
-    <h1>Mobiliario</h1>
+    <h1 class="encabezado">Mobiliario</h1>
+    <div class="formulario-moobiliario div1">
     <form action="/presupuesto/" method="POST">
     {% csrf_token %}
 
         <table>
-            <tr>
-                <th>ID</th>
-                <th>Producto</th>
-                <th>Reposicion</th>
-                <th>Precio Renta</th>
-                <th>Cantidad</th>
-                <th>Cantidad Elegida</th>
-                <th>Subtotal</th>
-            </tr>
-            
+            <thead class="encabezado-tabla">
+                <tr>
+                    <th class="encabezado-titulo">ID</th>
+                    <th class="encabezado-titulo">Producto</th>
+                    <th class="encabezado-titulo">Reposicion</th>
+                    <th class="encabezado-titulo">Precio Renta</th>
+                    <th class="encabezado-titulo">Cantidad</th>
+                    <th class="encabezado-titulo">Cantidad Elegida</th>
+                    <th class="encabezado-titulo">Subtotal</th>
+                </tr>
+            </thead>
             {% for i, j, k in my_list %}
             <tr>
                 <td>{{i.id_gestionm}}</td>
@@ -44,8 +48,9 @@
             </tr>
             {% endfor %}
         </table>
-        <input type="submit" value="presupuestar">
+        <input type="submit" value="presupuestar"class="boton">
     </form>
+</div>
       
     {% endblock %}
 

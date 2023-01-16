@@ -4,30 +4,33 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/static/presupuesto.css"type="text/css">
     <title>Presupuesto</title>
 </head>
 <body>
     <div class="acciones">
+        <a href="/menu" class="proyecto">Menu</a>
     {% extends 'base.html' %}
 
     {% block content %} 
     </div>
 
-    <h1>Presupuesto</h1>
+    <h1 class="encabezado">Presupuesto</h1>
     <form action="" method="POST">
     {% csrf_token %}
-
-    <h2>Cliente</h2>
+    <div class="formulario-presupuesto div1">
+    <h2 class="encabezado-cliente">Cliente</h2>
         <table>
-            <tr>
-                <th>ID</th>
-                <th>Mobiliario</th>
-                <th>Menus</th>
-                <th>Personal</th>
-                <th>Precio Unitario</th>
-                <th>Subtotal</th>
-            </tr>
-            
+            <thead class="encabezado-tabla">
+                <tr>
+                    <th class="encabezado-titulo">ID</th>
+                    <th class="encabezado-titulo">Mobiliario</th>
+                    <th class="encabezado-titulo">Menus</th>
+                    <th class="encabezado-titulo">Personal</th>
+                    <th class="encabezado-titulo">Precio Unitario</th>
+                    <th class="encabezado-titulo">Subtotal</th>
+                </tr>
+            </thead>
             <tr>
                 <td></td>
                 <td></td>
@@ -43,11 +46,12 @@
             </tr>
             
             <tr>
-                <th>total</th>
+                <th class="pie-tabla">Total: </th>
             </tr>
         </table>
     
     </form>
+    </div>
       
     {% endblock %}
 

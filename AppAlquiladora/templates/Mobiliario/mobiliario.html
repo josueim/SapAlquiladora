@@ -4,49 +4,56 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/static/mobiliario.css"type="text/css">
     <title>Mobiliario</title>
 </head>
 <body>
     <div class="acciones">
-    {% extends 'base.html' %}
+        <a href="/menu" class="proyecto">Menu</a>
+        {% extends 'base.html' %}
 
-    {% block content %} 
+        {% block content %} 
     </div>
+    
+    <h1 class="encabezado">Mobiliario</h1>
+    <div class="formulario-moobiliario div1">
+        <form action="/mobiliario-p/" method="POST">
+        {% csrf_token %}
 
-    <h1>Mobiliario</h1>
-    <form action="/mobiliario-p/" method="POST">
-    {% csrf_token %}
-
-        <table>
-            <tr>
-                <th>ID</th>
-                <th>Producto</th>
-                <th>Reposicion</th>
-                <th>Precio Renta</th>
-                <th>Cantidad</th>
-                <th>Cantidad Elegida</th>
-                <th>Subtotal</th>
-            </tr>
-            
-            {% for i in mobiliario %}
-            <tr>
-                <td>{{i.id_gestionm}}</td>
-                <td>{{i.producto}}</td>
-                <td>{{i.reposicion}}</td>
-                <td>{{i.precio_renta}}</td>
-                <td>{{i.cantidad}}</td>
-                <td>
-                    <input type="number" name='calcular[]'>
-                </td>
-                <td>
-                    <input type="number">
-                </td>
-            </tr>
-            {% endfor %}
-        </table>
-        <input type="submit" value="calcular" name="mobiliario">
-    </form>
-      
+            <table>
+                <thead class="encabezado-tabla">
+                    <tr>
+                        <th class="encabezado-titulo">ID</th>
+                        <th class="encabezado-titulo">Producto</th>
+                        <th class="encabezado-titulo">Reposicion</th>
+                        <th class="encabezado-titulo">Precio Renta</th>
+                        <th class="encabezado-titulo">Cantidad</th>
+                        <th class="encabezado-titulo">Cantidad Elegida</th>
+                        <th class="encabezado-titulo">Subtotal</th>
+                    </tr>
+                </thead>
+                {% for i in mobiliario %}
+                <tr>
+                    <td>{{i.id_gestionm}}</td>
+                    <td>{{i.producto}}</td>
+                    <td>{{i.reposicion}}</td>
+                    <td>{{i.precio_renta}}</td>
+                    <td>{{i.cantidad}}</td>
+                    <td>
+                        <input class="cantidad" type="number" name='calcular[]'>
+                    </td>
+                    <td>
+                        <input type="number">
+                    </td>
+                </tr>
+                {% endfor %}
+            </table>
+            <div class="fijo">
+                <input type="submit" value="calcular" name="mobiliario"class="boton">
+            </div>
+        </form>
+    </div>
+    
     {% endblock %}
 
 </body>

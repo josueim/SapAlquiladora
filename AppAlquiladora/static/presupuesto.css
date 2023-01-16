@@ -1,0 +1,115 @@
+:root{
+    --fuente_headings: 'Inter', sans-serif;
+    --fuente_textos: 'Open Sans', sans-serif;
+
+
+    
+    --cyan: #0891B2;
+    --azul: #2563EB;
+    --indigo: #4338CA;
+    --morado: #7C3AED;
+    --naranja:#F59E0B;
+    --rosa: #DB2777;
+
+    --blanco: #FFFFFF;
+    --gris: #6b7280;
+    --grisOscuro: #4B5563;
+    --grisClaro: #f3f4f6;
+    --negro: #000;
+
+    --rojo: rgb(169, 0, 0);
+    --verde: rgb(0, 120, 0);
+}
+.acciones{
+    background-color: var(--blanco);
+    padding: 1rem 2rem;
+    box-shadow: 1px 12px 9px -13px rgba(0, 0, 0, .4);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+a{
+    flex: 0 0 10rem;
+    margin-left: 0.5rem;
+    margin-right: 0.5rem;
+    color: var(--blanco);
+    font-size: 1.2rem;
+    background-color: var(--cyan);
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    padding: .5rem;
+    line-height: 1;
+    border-radius: .4rem;
+    text-decoration: none;
+}
+a:hover{
+    background-color: var(--negro);
+}
+ul{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color:var(--blanco);
+    padding-top: 1rem;
+}
+.encabezado{
+    text-align: center;
+    color: var(--indigo);
+}
+.formulario-presupuesto{
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    align-items: center;
+    position: sticky;
+    list-style: none;
+    padding: 0;
+    margin-top: 3rem;
+}
+.encabezado-tabla{
+    background-color: var(--grisOscuro);
+    margin-top: 4rem;
+    position: sticky;
+    top: 0;
+    padding: 8rem 7rem;
+    text-align: center;
+    color: var(--blanco);
+    font-size: 1.2rem;
+}
+.encabezado-titulo{
+    padding: 1rem;
+}
+.boton{
+    background-color: var(--cyan);
+    padding: 1.5rem 4rem;
+    color:var(--blanco);
+    font-size: 1.2rem;
+    
+    font-weight: 700;
+    border: none;
+    transition-property: background-color;
+    transition-duration: .3s;
+    text-align: center;
+    display: block;
+    block-size: auto; 
+    text-transform: uppercase;
+    margin-top: 2rem;
+    margin-right: auto;
+    margin-left: auto;
+  
+}
+.boton:hover{
+    cursor: pointer;
+    background-color: var(--morado);
+}
+.cantidad{
+    padding-right:1.6rem ;
+}
+.encabezado-cliente{
+    color: var(--cyan);
+    font-size: 2rem;
+}
+.pie-tabla{
+    font-size: 1.5rem;
+}
