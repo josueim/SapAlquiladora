@@ -31,4 +31,5 @@ urlpatterns = [
     path('platillos/', views.platillos, name='platillos'),
     path('platillos-p/', views.platillos_p, name='platillos_p'),
     path('presupuesto/', views.presupuesto, name='presupuesto'),
+    path('vista-platillos/', views.vista_platillos, name='vista_platillos'),
 ]
