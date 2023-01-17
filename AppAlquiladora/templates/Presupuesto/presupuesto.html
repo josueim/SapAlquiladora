@@ -4,76 +4,82 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/static/presupuesto.css"type="text/css">
     <title>Presupuesto</title>
 </head>
 <body>
     <div class="acciones">
+        <a href="/menu" class="proyecto">Menu</a>
     {% extends 'base.html' %}
 
     {% block content %} 
     </div>
 
-    <h1>Presupuesto</h1>
+    <h1 class="encabezado">Presupuesto</h1>
     <form action="/presupuesto-p/" method="POST">
     {% csrf_token %}
-
-    Cliente:<input type="text" name="nombre_cliente">
+    <div class="formulario-presupuesto">
+        Cliente:<input type="text" name="nombre_cliente">
+    
         <table>
-            <tr>
-                <th>ID</th>
-                <th>Mobiliario</th>
-                <th>Personal</th>
-                <th>Platillos</th>
-                <th>Precio Unitario</th>
-                <th>Subtotal</th>
-            </tr>
-            
+            <thead class="encabezado-tabla">
+                <tr>
+                    <th class="encabezado-titulo">ID</th>
+                    <th class="encabezado-titulo">Mobiliario</th>
+                    <th class="encabezado-titulo">Personal</th>
+                    <th class="encabezado-titulo">Platillos</th>
+                    <th class="encabezado-titulo">Precio Unitario</th>
+                    <th class="encabezado-titulo">Subtotal</th>
+                </tr>
+            </thead>
             {% for i,j,k,l in mobiliario_zip %}
             <tr>
-                <td><input type="number" value="{{j}}"></td>
-                <td><input type="text" value="{{i.producto}}"></td>
-                <td><input type="text" value=""></td>
-                <td><input type="text" value=""></td>
-                <td><input type="number" value="{{k}}"></td>
-                <td><input type="number" value="{{l}}"></td>
+                <td><input class="cantidad" type="number" value="{{j}}"></td>
+                <td><input class="cantidad" type="text" value="{{i.producto}}"></td>
+                <td><input class="cantidad" type="text" value=""></td>
+                <td><input class="cantidad" type="text" value=""></td>
+                <td><input class="cantidad" type="number" value="{{k}}"></td>
+                <td><input class="cantidad" type="number" value="{{l}}"></td>
             </tr>
             {% endfor %}
 
             {% for i,j,k,l in personal_zip %}
             <tr>
-                <td><input type="number" value="{{j}}"></td>
-                <td><input type="text" value=""></td>
-                <td><input type="text" value="{{i.descripcion}}"></td>
-                <td><input type="text" value=""></td>
-                <td><input type="number" value="{{k}}"></td>
-                <td><input type="number" value="{{l}}"></td>
+                <td><input class="cantidad" type="number" value="{{j}}"></td>
+                <td><input class="cantidad" type="text" value=""></td>
+                <td><input class="cantidad" type="text" value="{{i.descripcion}}"></td>
+                <td><input class="cantidad" type="text" value=""></td>
+                <td><input class="cantidad" type="number" value="{{k}}"></td>
+                <td><input class="cantidad" type="number" value="{{l}}"></td>
             </tr>
             {% endfor %}
 
             {% for i,j,k,l in platillo_zip %}
             <tr>
-                <td><input type="number" value="{{j}}"></td>
-                <td><input type="text" value=""></td>
-                <td><input type="text" value=""></td>
-                <td><input type="text" value="{{i.producto}}"></td>
-                <td><input type="number" value="{{k}}"></td>
-                <td><input type="number" value="{{l}}"></td>
+                <td><input class="cantidad" type="number" value="{{j}}"></td>
+                <td><input class="cantidad" type="text" value=""></td>
+                <td><input class="cantidad" type="text" value=""></td>
+                <td><input class="cantidad" type="text" value="{{i.producto}}"></td>
+                <td><input class="cantidad" type="number" value="{{k}}"></td>
+                <td><input class="cantidad" type="number" value="{{l}}"></td>
             </tr>
             {% endfor %}
-            
+            <thead class="encabezado-tabla">
+                <tr>
+                    <th class="encabezado-titulo">Descuento %</th>
+                    <th class="encabezado-titulo">Total</th>
+                    <th class="encabezado-titulo">A cuenta</th>
+                </tr>
+            </thead>
             <tr>
-                <th>Descuento %</th>
-                <th>Total</th>
-                <th>A cuenta</th>
-            </tr>
-            <tr>
-                <td><input type="number" value="" name="p_descuento"></td>
-                <td><input type="number" value=""></td>
-                <td><input type="number" value=""></td>
+                <td><input class="cantidad" type="number" value="" name="p_descuento"></td>
+                <td><input class="cantidad" type="number" value=""></td>
+                <td><input class="cantidad" type="number" value=""></td>
             </tr>
         </table>
         <input type="submit" value="calcular" name="presupuesto" class="boton">
     </form>
+</div>
       
     {% endblock %}
 

@@ -2,8 +2,6 @@
     --fuente_headings: 'Inter', sans-serif;
     --fuente_textos: 'Open Sans', sans-serif;
 
-
-    
     --cyan: #0891B2;
     --azul: #2563EB;
     --indigo: #4338CA;
@@ -61,7 +59,7 @@ ul{
     display: flex;
     justify-content: space-between;
     flex-direction: column;
-    align-items: center;
+    align-items:center;
     position: sticky;
     list-style: none;
     padding: 0;
@@ -104,12 +102,10 @@ ul{
     background-color: var(--morado);
 }
 .cantidad{
-    padding-right:1.6rem ;
+    width: 11rem;
 }
-.encabezado-cliente{
-    color: var(--cyan);
-    font-size: 2rem;
-}
-.pie-tabla{
-    font-size: 1.5rem;
+input[type=number]::-webkit-inner-spin-button, 
+input[type=number]::-webkit-outer-spin-button { 
+  -webkit-appearance:none; 
+  margin: 0; 
 }
