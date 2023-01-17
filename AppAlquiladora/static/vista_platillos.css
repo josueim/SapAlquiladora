@@ -1,0 +1,120 @@
+:root{    
+    --cyan: #0891B2;
+    --azul: #2563EB;
+    --indigo: #4338CA;
+    --morado: #7C3AED;
+    --naranja:#F59E0B;
+    --rosa: #DB2777;
+    --cyan: #0891B2;
+    --azul: #2563EB;
+    --indigo: #4338CA;
+    --morado: #7C3AED;
+    --naranja:#F59E0B;
+    --rosa: #DB2777;
+
+    --blanco: #FFFFFF;
+    --gris: #6b7280;
+    --grisOscuro: #4B5563;
+    --grisClaro: #f3f4f6;
+    --negro: #000;
+
+    --rojo: rgb(169, 0, 0);
+    --verde: rgb(0, 120, 0);
+}
+.acciones{
+    background-color: var(--blanco);
+    padding: 1rem 2rem;
+    box-shadow: 1px 12px 9px -13px rgba(0, 0, 0, .4);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+a{
+    flex: 0 0 10rem;
+    margin-left: 0.5rem;
+    margin-right: 0.5rem;
+    color: var(--blanco);
+    font-size: 1.2rem;
+    background-color: var(--cyan);
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    padding: .5rem;
+    line-height: 1;
+    border-radius: .4rem;
+    text-decoration: none;
+}
+a:hover{
+    background-color: var(--negro);
+}
+ul{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color:var(--blanco);
+    padding-top: 1rem;
+}
+.contenedor {
+    max-width: 120rem;
+    width: 90%;
+    width: min(90%, 120rem);/*Nueva forma*/
+    margin: auto 10rem; 
+
+}
+
+.cursos{
+    list-style: none;
+    margin: auto 0;   
+}
+.no-padding{
+    padding: 0;
+}
+.widget-curso{
+    border-bottom: 1rem solid var(--gris);
+    margin-bottom: 2rem;
+
+}
+.widget-curso:last-of-type{
+    border: none;
+    margin-bottom: 0;
+}
+.widget-curso__label{
+    font-weight: bold;
+    font-size: 1.3rem;
+    color: var(--naranja);
+}
+.widget-curso--info{
+    font-weight: normal;
+}
+
+.widget-curso--info{
+    font-size: 1.3rem;
+}
+
+img{
+    max-width: 80%;
+    border-radius: 10%;
+}
+.entrada__imagen{
+    display: flex;
+    align-items: center;
+
+}
+.contenido-secundario{
+    display: grid;
+    grid-template-columns:1fr 2fr ;
+    column-gap: 1rem;
+    padding: 2rem;
+    
+}
+h3{
+    font-size: 2.8rem;
+    color:var(--cyan);
+    text-align: center;
+    
+}
+h4{
+    font-size: 1.8rem;
+    color: var(--grisOscuro);
+}
+
