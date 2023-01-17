@@ -4,13 +4,71 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/static/vista_platillos.css"type="text/css">
     <title>Vista de Platillos</title>
 </head>
 <body>
     <div class="acciones">
+        <a href="/menu" class="proyecto">Menu</a>
         {% extends 'base.html' %}
     
         {% block content %} 
+    </div>
+    <div class="contenedor contenido-principal">
+        <h3>Nuestros Platillos</h3>
+        
+        <ol class="cursos no-padding">
+            <div class="contenido-secundario">
+                <div class="entrada__imagen">
+                    <img src="/static/ejecutivo.jpeg" alt="imagen ejecutiva">
+                </div>
+                <div class="entrada__contenido">
+                    <li class="widget-curso">
+                        <h4 class="no-margin">Desayuno Ejecutivo</h4>
+                        <p class="widget-curso__label">Descripcion:</p>
+                        <ol>                  
+                            <p class="widget-curso--info">Cafe</p>
+                            <p class="widget-curso--info">Jugo</p>
+                            <p class="widget-curso--info">Chilaquiles c/fajitas de pollo</p>                   
+                        </ol> 
+                    </li>
+                </div>
+            </div>
+            <div class="contenido-secundario">
+                <div class="entrada__imagen">
+                    <img src="/static/ejecutivo.jpeg" alt="imagen ejecutiva">
+                </div>
+                <div class="entrada__contenido">
+                    <li class="widget-curso">
+                        <h4 class="no-margin">Comida Tradicional</h4>
+                        
+                        <p class="widget-curso__label">Descripcion:</p>
+                        <ol>           
+                            <p class="widget-curso--info">100 gr de barbacoa rja</p>
+                            <p class="widget-curso--info">1 pieza de pollo con presentacion de mole Tradicional y ajonjolí</p>
+                            <p class="widget-curso--info">Rojo/Blanco</p>     
+                        </ol> 
+                    </li>
+                </div>
+            </div>
+            <div class="contenido-secundario">
+                <div class="entrada__imagen">
+                    <img src="/static/ligero.jpeg" alt="imagen ligera">
+                </div>
+                <div class="entrada__contenido">
+                    <li class="widget-curso">
+                        <h4 class="no-margin">Cena Ligera</h4>
+                        <p class="widget-curso__label">Descripcion:</p>
+                        <ol>                       
+                            <p class="widget-curso--info">café/Refresco</p>
+                            <p class="widget-curso--info">Pan salado</p>
+                            <p class="widget-curso--info">Crema de zanahoria</p>
+                            <p class="widget-curso--info">Pechuga rellena de queso y jamón</p>
+                        </ol> 
+                    </li>
+                </div>
+            </div>         
+        </ol>    
     </div>
 
         {% endblock %}

@@ -217,3 +217,7 @@ def presupuesto(request):
     }
 
     return render(request, 'Presupuesto/presupuesto.html', context)
+
+
+def vista_platillos(request):
+    return render(request, 'vista_platillos.html')
