@@ -156,67 +156,115 @@ def platillos_p(request):
     return render(request, 'Platillos/platillos_p.html', context)
 
 
+lista_mobiliario = []
+id_mobiliarios = []
+mobiliarios = []
+subtotales_m = []
+
+lista_personal = []
+id_personal = []
+personals = []
+subtotales_p = []
+
+lista_platillo = []
+id_platillo = []
+platilloss = []
+subtotales_pl = []
+
+
 def presupuesto(request):
     context = {}
     #data base tables into lists
     clientes = Clientes.objects.all()
     mobiliario = GestionMobiliaria.objects.all()
+    personal = Personal.objects.all()
+    platillos = MenusComida.objects.all()
+
 
     #mobiliario
     mobiliario_elegido = request.POST.getlist('mobiliario_elegido[]')
     subtotal_mobiliario = request.POST.getlist('subtotal_mobiliario[]')
 
-    len_mobiliario = []
-    for i in range(len(mobiliario_elegido)):
-        len_mobiliario.append(i)
+    mobiliario_post = zip(mobiliario_elegido, subtotal_mobiliario)
 
-    #list elegidos without zeros
-    mobiliarios = {}
-    counter_mobiliario = 0
-    for i in mobiliario_elegido:
-        if i != 0:
-            mobiliarios[counter_mobiliario] = i
+    #lists mobiliario, id, elegidos, subrtotales without zeros
+    counter_mobiliario = 1
+    for i,j in mobiliario_post:
+        if j != '0':
+            id_mobiliarios.append(counter_mobiliario)
+            mobiliarios.append(i)
+            subtotales_m.append(j)
             counter_mobiliario += 1
         else:
             counter_mobiliario += 1
 
-    #list subtotal without zeros
-    subtotales = {}
-    counter_subtotal = 0
-    for i in subtotal_mobiliario:
-        if i != 0:
-            subtotales[counter_subtotal] = i
-            counter_subtotal += 1
-        else:
-            counter_subtotal += 1
+    for i in mobiliario:
+        if i.id_gestionm in id_mobiliarios:
+            lista_mobiliario.append(i)
 
-    mobiliario_zip = zip(mobiliario, mobiliarios, subtotales)
+    mobiliario_zip = zip(lista_mobiliario, id_mobiliarios, mobiliarios, subtotales_m)
     
 
     #personal
     personal_elegido = request.POST.getlist('personal_elegido[]')
     subtotal_personal = request.POST.getlist('subtotal_personal[]')
-    personal_zip = zip(personal_elegido, subtotal_personal)
 
-    len_personal = []
-    for i in range(len(personal_elegido)):
-        len_personal.append(i)
+    personal_post = zip(personal_elegido, subtotal_personal)
+
+    #lists personal, id, elegidos, subrtotales without zeros
+    
+    counter_personal = 1
+    for i,j in personal_post:
+        if j != '0':
+            id_personal.append(counter_personal)
+            personals.append(i)
+            subtotales_p.append(j)
+            counter_personal += 1
+        else:
+            counter_personal += 1
+
+    for i in personal:
+        if i.id_personal in id_personal:
+            lista_personal.append(i)
+
+    personal_zip = zip(lista_personal, id_personal, personals, subtotales_p)
+
 
     #platillos
     platillos_elegido = request.POST.getlist('platillos_elegido[]')
     subtotal_platillos = request.POST.getlist('subtotal_platillos[]')
-    platillos_zip = zip(platillos_elegido, subtotal_platillos)
 
-    len_platillos = []
-    for i in range(len(platillos_elegido)):
-        len_platillos.append(i)
+    platillos_post = zip(platillos_elegido, subtotal_platillos)
+
+    #lists platillos, id, elegidos, subrtotales without zeros
+    counter_platillo = 1
+    for i,j in platillos_post:
+        if j != '0':
+            id_platillo.append(counter_platillo)
+            platilloss.append(i)
+            subtotales_pl.append(j)
+            counter_platillo += 1
+        else:
+            counter_platillo += 1
+
+    for i in platillos:
+        if i.id_menusc in id_platillo:
+            lista_platillo.append(i)
+
+    platillo_zip = zip(lista_platillo, id_platillo, platilloss, subtotales_pl)
 
     context = {
         'clientes': clientes,
-        'mobiliario_zip': mobiliario_zip
+        'mobiliario_zip': mobiliario_zip,
+        'personal_zip': personal_zip,
+        'platillo_zip': platillo_zip
     }
 
     return render(request, 'Presupuesto/presupuesto.html', context)
+
+
+def presupuesto_p(request):
+    return render(request, 'personal_p.html')
 
 
 def vista_platillos(request):
