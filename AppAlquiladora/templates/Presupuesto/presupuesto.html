@@ -14,14 +14,10 @@
     </div>
 
     <h1>Presupuesto</h1>
-    <form action="/historial/" method="POST">
+    <form action="/presupuesto-p/" method="POST">
     {% csrf_token %}
 
-    <select name="" id="">
-        {% for i in clientes %}
-        <option value="" name="option_cliente">{{ i }}</option>
-        {% endfor %}
-    </select>
+    Cliente:<input type="text" name="nombre_cliente">
         <table>
             <tr>
                 <th>ID</th>
@@ -34,7 +30,7 @@
             
             {% for i,j,k,l in mobiliario_zip %}
             <tr>
-                <td><input type="number" value="{{j}}" name="p_mobiliario_id"></td>
+                <td><input type="number" value="{{j}}"></td>
                 <td><input type="text" value="{{i.producto}}"></td>
                 <td><input type="text" value=""></td>
                 <td><input type="text" value=""></td>
@@ -45,7 +41,7 @@
 
             {% for i,j,k,l in personal_zip %}
             <tr>
-                <td><input type="number" value="{{j}}" name="p_personal_id"></td>
+                <td><input type="number" value="{{j}}"></td>
                 <td><input type="text" value=""></td>
                 <td><input type="text" value="{{i.descripcion}}"></td>
                 <td><input type="text" value=""></td>
@@ -56,7 +52,7 @@
 
             {% for i,j,k,l in platillo_zip %}
             <tr>
-                <td><input type="number" value="{{j}}" name="p_platillos_id"></td>
+                <td><input type="number" value="{{j}}"></td>
                 <td><input type="text" value=""></td>
                 <td><input type="text" value=""></td>
                 <td><input type="text" value="{{i.producto}}"></td>

@@ -175,7 +175,6 @@ subtotales_pl = []
 def presupuesto(request):
     context = {}
     #data base tables into lists
-    clientes = Clientes.objects.all()
     mobiliario = GestionMobiliaria.objects.all()
     personal = Personal.objects.all()
     platillos = MenusComida.objects.all()
@@ -254,7 +253,6 @@ def presupuesto(request):
     platillo_zip = zip(lista_platillo, id_platillo, platilloss, subtotales_pl)
 
     context = {
-        'clientes': clientes,
         'mobiliario_zip': mobiliario_zip,
         'personal_zip': personal_zip,
         'platillo_zip': platillo_zip
@@ -264,7 +262,37 @@ def presupuesto(request):
 
 
 def presupuesto_p(request):
-    return render(request, 'personal_p.html')
+    context = {}
+
+    mobiliario_zip = zip(lista_mobiliario, id_mobiliarios, mobiliarios, subtotales_m)
+    personal_zip = zip(lista_personal, id_personal, personals, subtotales_p)
+    platillo_zip = zip(lista_platillo, id_platillo, platilloss, subtotales_pl)
+
+    nombre_cliente = request.POST.get("nombre_cliente")
+    descuento_presupuesto = int(request.POST.get("p_descuento"))
+
+    for i in range(len(subtotales_m)):
+        subtotales_m[i] = int(subtotales_m[i])
+
+    for i in range(len(subtotales_p)):
+        subtotales_p[i] = int(subtotales_p[i])
+
+    for i in range(len(subtotales_pl)):
+        subtotales_pl[i] = int(subtotales_pl[i])
+
+    descuento_porcentaje = ((descuento_presupuesto * ((sum(subtotales_m) + sum(subtotales_p) + sum(subtotales_pl))))/100)
+    total = (sum(subtotales_m) + sum(subtotales_p) + sum(subtotales_pl)) - descuento_porcentaje
+
+    context = {
+        'mobiliario_zip': mobiliario_zip,
+        'personal_zip': personal_zip,
+        'platillo_zip': platillo_zip,
+        'nombre_cliente': nombre_cliente,
+        'descuento_presupuesto': descuento_presupuesto,
+        'total': total
+    }
+
+    return render(request, 'Presupuesto/presupuesto_p.html', context)
 
 
 def vista_platillos(request):
