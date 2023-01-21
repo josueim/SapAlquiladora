@@ -34,34 +34,34 @@
             </thead>
             {% for i,j,k,l in mobiliario_zip %}
             <tr>
-                <td><input class="cantidad" type="number" value="{{j}}"></td>
-                <td><input class="cantidad" type="text" value="{{i.producto}}"></td>
-                <td><input class="cantidad" type="text" value=""></td>
-                <td><input class="cantidad" type="text" value=""></td>
-                <td><input class="cantidad" type="number" value="{{k}}"></td>
-                <td><input class="cantidad" type="number" value="{{l}}"></td>
+                <td><input class="cantidad" type="number" value="{{j}}" disabled></td>
+                <td><input class="cantidad" type="text" value="{{i.producto}}" disabled></td>
+                <td><input class="cantidad" type="text" value="" disabled></td>
+                <td><input class="cantidad" type="text" value="" disabled></td>
+                <td><input class="cantidad" type="number" value="{{k}}" disabled></td>
+                <td><input class="cantidad" type="number" value="{{l}}" disabled></td>
             </tr>
             {% endfor %}
 
             {% for i,j,k,l in personal_zip %}
             <tr>
-                <td><input class="cantidad" type="number" value="{{j}}"></td>
-                <td><input class="cantidad" type="text" value=""></td>
-                <td><input class="cantidad" type="text" value="{{i.descripcion}}"></td>
-                <td><input class="cantidad" type="text" value=""></td>
-                <td><input class="cantidad" type="number" value="{{k}}"></td>
-                <td><input class="cantidad" type="number" value="{{l}}"></td>
+                <td><input class="cantidad" type="number" value="{{j}}" disabled></td>
+                <td><input class="cantidad" type="text" value="" disabled></td>
+                <td><input class="cantidad" type="text" value="{{i.descripcion}}" disabled></td>
+                <td><input class="cantidad" type="text" value="" disabled></td>
+                <td><input class="cantidad" type="number" value="{{k}}" disabled></td>
+                <td><input class="cantidad" type="number" value="{{l}}" disabled></td>
             </tr>
             {% endfor %}
 
             {% for i,j,k,l in platillo_zip %}
             <tr>
-                <td><input class="cantidad" type="number" value="{{j}}"></td>
-                <td><input class="cantidad" type="text" value=""></td>
-                <td><input class="cantidad" type="text" value=""></td>
-                <td><input class="cantidad" type="text" value="{{i.producto}}"></td>
-                <td><input class="cantidad" type="number" value="{{k}}"></td>
-                <td><input class="cantidad" type="number" value="{{l}}"></td>
+                <td><input class="cantidad" type="number" value="{{j}}" disabled></td>
+                <td><input class="cantidad" type="text" value="" disabled></td>
+                <td><input class="cantidad" type="text" value="" disabled></td>
+                <td><input class="cantidad" type="text" value="{{i.producto}}" disabled></td>
+                <td><input class="cantidad" type="number" value="{{k}}" disabled></td>
+                <td><input class="cantidad" type="number" value="{{l}}" disabled></td>
             </tr>
             {% endfor %}
             <thead class="encabezado-tabla">
@@ -73,8 +73,8 @@
             </thead>
             <tr>
                 <td><input class="cantidad" type="number" value="" name="p_descuento"></td>
-                <td><input class="cantidad" type="number" value=""></td>
-                <td><input class="cantidad" type="number" value=""></td>
+                <td><input class="cantidad" type="number" value="" disabled></td>
+                <td><input class="cantidad" type="number" value="" disabled></td>
             </tr>
         </table>
         <input type="submit" value="calcular" name="presupuesto" class="boton">

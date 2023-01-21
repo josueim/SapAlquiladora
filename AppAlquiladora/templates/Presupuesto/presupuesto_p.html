@@ -38,34 +38,34 @@
             </thead>
             {% for i,j,k,l in mobiliario_zip %}
             <tr>
-                <td><input type="number" value="{{j}}" name="p_mobiliario_id"></td>
-                <td><input type="text" value="{{i.producto}}"></td>
-                <td><input type="text" value=""></td>
-                <td><input type="text" value=""></td>
-                <td><input type="number" value="{{k}}"></td>
-                <td><input type="number" value="{{l}}"></td>
+                <td><input type="number" value="{{j}}" name="p_mobiliario_id" disabled</td>
+                <td><input type="text" value="{{i.producto}}" disabled></td>
+                <td><input type="text" value="" disabled></td>
+                <td><input type="text" value="" disabled></td>
+                <td><input type="number" value="{{k}}" disabled></td>
+                <td><input type="number" value="{{l}}" disabled></td>
             </tr>
             {% endfor %}
 
             {% for i,j,k,l in personal_zip %}
             <tr>
-                <td><input type="number" value="{{j}}" name="p_personal_id"></td>
-                <td><input type="text" value=""></td>
-                <td><input type="text" value="{{i.descripcion}}"></td>
-                <td><input type="text" value=""></td>
-                <td><input type="number" value="{{k}}"></td>
-                <td><input type="number" value="{{l}}"></td>
+                <td><input type="number" value="{{j}}" name="p_personal_id" disabled></td>
+                <td><input type="text" value="" disabled></td>
+                <td><input type="text" value="{{i.descripcion}}" disabled></td>
+                <td><input type="text" value="" disabled></td>
+                <td><input type="number" value="{{k}}" disabled></td>
+                <td><input type="number" value="{{l}}" disabled></td>
             </tr>
             {% endfor %}
 
             {% for i,j,k,l in platillo_zip %}
             <tr>
-                <td><input type="number" value="{{j}}" name="p_platillos_id"></td>
-                <td><input type="text" value=""></td>
-                <td><input type="text" value=""></td>
-                <td><input type="text" value="{{i.producto}}"></td>
-                <td><input type="number" value="{{k}}"></td>
-                <td><input type="number" value="{{l}}"></td>
+                <td><input type="number" value="{{j}}" name="p_platillos_id" disabled></td>
+                <td><input type="text" value="" disabled></td>
+                <td><input type="text" value="" disabled></td>
+                <td><input type="text" value="{{i.producto}}" disabled></td>
+                <td><input type="number" value="{{k}}" disabled></td>
+                <td><input type="number" value="{{l}}" disabled></td>
             </tr>
             {% endfor %}
             <thead class="encabezado-tabla">
@@ -76,12 +76,12 @@
                 </tr>
             </thead>
             <tr>
-                <td><input type="number" value="{{descuento_presupuesto}}" name="p_descuento"></td>
-                <td><input type="number" value="{{total}}"></td>
-                <td><input type="number" value=""></td>
+                <td><input type="number" value="{{descuento_presupuesto}}" name="p_descuento"disabled></td>
+                <td><input type="number" value="{{total}}"disabled></td>
+                <td><input type="number" value=""disabled></td>
             </tr>
         </table>
-        <input type="submit" value="calcular" name="presupuesto" class="boton">
+        
     </form>
 </div>
     {% endblock %}

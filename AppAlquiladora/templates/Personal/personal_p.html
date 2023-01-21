@@ -37,10 +37,10 @@
                 <td>{{i.precio_evento}}</td>
                 <td>{{i.cantidad}}</td>
                 <td>
-                    <input class="cantidad" type="number" value="{{j}}" name="personal_elegido[]">
+                    <input class="cantidad" type="number" value="{{j}}" name="personal_elegido[]" readonly >
                 </td>
                 <td>
-                    <input type="number" value="{{k}}" name="subtotal_personal[]">
+                    <input type="number" value="{{k}}" name="subtotal_personal[]"readonly >
                 </td>
             </tr>
             {% endfor %}
