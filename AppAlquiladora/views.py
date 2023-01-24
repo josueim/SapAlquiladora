@@ -264,6 +264,10 @@ def presupuesto(request):
 def presupuesto_p(request):
     context = {}
 
+    global lista_mobiliario, id_mobiliarios, mobiliarios, subtotales_m
+    global lista_personal, id_personal, personals, subtotales_p
+    global lista_platillo, id_platillo, platilloss, subtotales_pl
+
     mobiliario_zip = zip(lista_mobiliario, id_mobiliarios, mobiliarios, subtotales_m)
     personal_zip = zip(lista_personal, id_personal, personals, subtotales_p)
     platillo_zip = zip(lista_platillo, id_platillo, platilloss, subtotales_pl)
@@ -291,6 +295,29 @@ def presupuesto_p(request):
         'descuento_presupuesto': descuento_presupuesto,
         'total': total
     }
+
+    lista_vacia = []
+
+    if 'Terminar' in request.POST:
+
+        lista_mobiliario = lista_vacia
+        id_mobiliarios = lista_vacia
+        mobiliarios = lista_vacia
+        subtotales_m = lista_vacia
+
+        lista_personal = lista_vacia
+        id_personal = lista_vacia
+        personals = lista_vacia
+        subtotales_p = lista_vacia
+
+        lista_platillo = lista_vacia
+        id_platillo = lista_vacia
+        platilloss = lista_vacia
+        subtotales_pl = lista_vacia
+
+        nombre_cliente = 0
+        descuento_presupuesto = 0
+
 
     return render(request, 'Presupuesto/presupuesto_p.html', context)
 

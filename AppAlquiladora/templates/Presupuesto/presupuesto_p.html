@@ -16,13 +16,11 @@
     </div>
 
     <h1 class="encabezado">Presupuesto</h1>
-    <form action="/historial/" method="POST">
+    <form action="/menu/" method="POST">
     {% csrf_token %}
     <div class="formulario-presupuesto">
     <select name="" id="">
-        {% for i in clientes %}
-        <option value="" name="option_cliente">{{ i }}</option>
-        {% endfor %}
+        <input type="text" value="{{nombre_cliente}}" name="nombre_cliente" disabled>
     </select>
     
         <table>
@@ -38,7 +36,7 @@
             </thead>
             {% for i,j,k,l in mobiliario_zip %}
             <tr>
-                <td><input type="number" value="{{j}}" name="p_mobiliario_id" disabled</td>
+                <td><input type="number" value="{{j}}" name="p_mobiliario_id" disabled></td>
                 <td><input type="text" value="{{i.producto}}" disabled></td>
                 <td><input type="text" value="" disabled></td>
                 <td><input type="text" value="" disabled></td>
@@ -81,7 +79,7 @@
                 <td><input type="number" value=""disabled></td>
             </tr>
         </table>
-        
+        <input type="submit" value="Terminar" class="boton" name="Terminar">
     </form>
 </div>
     {% endblock %}
